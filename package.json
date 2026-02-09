@@ -1,0 +1,79 @@
+{
+  "name": "proof-ai",
+  "version": "0.1.0",
+  "description": "Code verification for AI agents. Run AI-generated code in isolated Docker containers before it reaches users.",
+  "keywords": [
+    "ai",
+    "code-verification",
+    "sandbox",
+    "docker",
+    "llm",
+    "ai-agents",
+    "code-quality",
+    "static-analysis",
+    "ai-generated-code",
+    "copilot",
+    "cursor",
+    "devin"
+  ],
+  "homepage": "https://github.com/altorlab/proof-ai",
+  "bugs": {
+    "url": "https://github.com/altorlab/proof-ai/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/altorlab/proof-ai.git"
+  },
+  "license": "MIT",
+  "author": "Altorlab <hello@altorlab.com>",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "proof": "./bin/proof.js"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0"
+  },
+  "peerDependencies": {
+    "@e2b/code-interpreter": ">=1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@e2b/code-interpreter": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.2",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
