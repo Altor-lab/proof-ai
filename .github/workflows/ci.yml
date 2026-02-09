@@ -54,6 +54,9 @@ jobs:
       - run: npm ci
       - run: npm run build
 
+      - name: Pull Docker image
+        run: docker pull python:3.12-slim
+
       - name: Verify Docker sandbox
         run: |
           node bin/proof.js verify --code 'print("hello from Docker!")' --language python --sandbox docker --json
